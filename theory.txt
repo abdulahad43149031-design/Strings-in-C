@@ -1,25 +1,62 @@
-char words[100][50] // to store up to 100 words, each of length 49
+# C String Theory Notes
 
-1) char name[] = "Ahad";   => It is modifiable name[0] = 'M' => Mhad
-Stored as 'A' 'h' 'a' 'd' '\0'
-Null character tells C where to stop
+---
 
-2) As a pointer => char *name = "Ahad" => Can't modify it.
+## 1️⃣ Character Arrays vs Pointers
 
-3) Read strings
-fgets(name, sizeof(names), stdin) // automatically adds '\0' at the end. If there is enough space in the buffer, it also includes the newline character '\n. So if the user types "aba", source actually contains 'a' 'b' 'a' '\n' '\0'. If you want to remove the trailing \n => 
+char words[100][50]; // Stores up to 100 words, each of length 49
+
+### Example 1: Modifiable string array
+char name[] = "Ahad";
+name[0] = 'M'; // Now becomes "Mhad"
+
+- Stored as: 'A' 'h' 'a' 'd' '\0'
+- The null character \0 tells C where the string ends.
+
+### Example 2: Pointer to string literal
+char *name = "Ahad";
+
+- Cannot modify the string literal. Attempting to do so is undefined behavior.
+
+---
+
+## 2️⃣ Reading Strings
+
+fgets(name, sizeof(name), stdin);
+
+- Automatically adds \0 at the end.
+- Includes the newline character \n if there is space in the buffer.
+
+Example:
+Input: "aba"
+Stored as: 'a' 'b' 'a' '\n' '\0'
+
+- To remove trailing newline:
 src[strcspn(src, "\n")] = '\0';
 
-4) Working with strings => <string.h>
+---
 
-char s[] = "Ahad"
+## 3️⃣ Working with Strings (<string.h>)
 
-i) strlen(s) = 4 (excluding '\0') , sizeof(s) = 5 {counts '\0' too}
-ii) strcopy(dest, src) => Copies src string into destination variable
-iii) strcat("Hello", " World") => "Hello World"
-iv) strcmp(a, b) => Compares lexicographically. returns 0 if equal
-   returns a positive value if a is lexicographically greater than b, else returns a negative value.
-v) strchr(s, ch) => First occurence of ch in sizeof
-vi) strtok(str, delimeter) => returns a pointer to the next token or returns NULL if no tokens are left.
-----------------------------------------------------------------------
-token = strtok(NULL, " "); => Continue from where you left off last time. strtok modifies the string.
+char s[] = "Ahad";
+
+Function reference:
+
+- strlen(s)     → Returns 4 (excludes \0)
+- sizeof(s)     → Returns 5 (includes \0)
+- strcpy(dest, src) → Copies src into dest
+- strcat(dest, src) → Concatenates strings ("Hello" + " World" → "Hello World")
+- strcmp(a, b)  → Compares lexicographically: 0 if equal, positive if a > b, negative if a < b
+- strchr(s, ch) → Returns pointer to first occurrence of ch in s
+- strtok(str, delimiter) → Tokenizes a string; returns pointer to next token or NULL if done
+
+Example using strtok:
+
+token = strtok(str, " ");   // First token
+token = strtok(NULL, " ");  // Subsequent tokens; continues from last position
+
+- Note: strtok modifies the original string by replacing delimiters with \0
+
+---
+
+These notes summarize core string operations in C and common pitfalls when working with character arrays and pointers.
