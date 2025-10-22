@@ -63,6 +63,26 @@ madam is a palindromic string.
 </details>
 
 <details>
+
+<summary>2️⃣ arrangeAlphabets.c</summary>
+
+**Features:**
+- Arranges a given string in ascending order based on their ASCII values
+
+**Sample Input/Output:**
+
+<pre>
+Enter the sentence: simpleeasylearning
+Output: Final sorted string: aaeegiillmnnprssyy
+
+</pre>
+
+</details>
+
+<details>
+
+
+
 <summary>4️⃣ theory.txt</summary>
 
 **Concepts Covered:**
@@ -74,3 +94,5 @@ madam is a palindromic string.
 ```c
 token = strtok(str, " "); // first token
 token = strtok(NULL, " "); // subsequent tokens
+
+
