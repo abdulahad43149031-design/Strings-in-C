@@ -64,22 +64,7 @@ madam is a palindromic string.
 
 <details>
 
-<summary>2️⃣ arrangeAlphabets.c</summary>
 
-**Features:**
-- Arranges a given string in ascending order based on their ASCII values
-
-**Sample Input/Output:**
-
-<pre>
-Enter the sentence: simpleeasylearning
-Output: Final sorted string: aaeegiillmnnprssyy
-
-</pre>
-
-</details>
-
-<details>
 
 
 
