@@ -12,11 +12,12 @@ void findLen(){
     char name[100];
     printf("Enter a string:\n");
     fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = '\0';
     int count = 0;
     while(name[count] != '\0'){
         count++;
     }
-    printf("Length is = %d ", count - 1); // counts null character too
+    printf("Length of %s is %d ",name , count); 
 }
 
 void copy(){
@@ -48,5 +49,5 @@ void reverseString(char src[]){;
 }
 
 int main(){
-    char testString[100] = "madam";
+    findLen();
 }
