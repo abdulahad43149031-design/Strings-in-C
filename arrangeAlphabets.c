@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(){
+
+void approach1(){
     char str[100];
     printf("Enter the string:\n");
     fgets(str, sizeof(str), stdin);
@@ -19,4 +20,30 @@ int main(){
     }
 
     printf("Final sorted string: %s", str);
+}
+
+void selectionSort(){
+    char str[100];
+    printf("Input a string: \n");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
+    int len = strlen(str);
+    int min_index;
+    for(int i = 0; i<len - 1; i++){
+        min_index = i;
+        for(int j = i+1; j<len; j++){
+            if(str[j] < str[min_index]){
+                min_index = j;
+            }
+        }
+        char temp = str[i];
+        str[i] = str[min_index];
+        str[min_index] = temp;
+    }
+
+    printf("Final sorted string: %s", str);
+}
+
+int main(){
+    approach1();
 }
