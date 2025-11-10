@@ -58,6 +58,45 @@ void countFrequency(){
     printf("Number of occurences of word: %d", occurences);
 }
 
+#include <stdio.h>
+#include <string.h>
+
+void freqUsingFunction() {
+    char str[100];
+    char temp[20];
+    char word[20];
+    int occurrences = 0;
+
+    printf("Enter the sentence:\n");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    printf("Enter the word:\n");
+    fgets(word, sizeof(word), stdin);
+    word[strcspn(word, "\n")] = '\0';
+
+    int i = 0;
+    while (str[i] != '\0') {
+        int j = 0;
+
+        // Extract one word from sentence into temp
+        while (str[i] != ' ' && str[i] != '\0') {
+            temp[j++] = str[i++];
+        }
+        temp[j] = '\0';
+
+        // Compare the extracted word with target
+        if (strcmp(temp, word) == 0) {
+            occurrences++;
+        }
+
+        // Skip extra spaces
+        while (str[i] == ' ') i++;
+    }
+
+    printf("Number of occurrences: %d\n", occurrences);
+}
+
 int main(){
-    countFrequency();
+    freqUsingFunction();
 }
