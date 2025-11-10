@@ -107,6 +107,31 @@ void arrayOfStrings(){
 
 }
 
+void  numberOfSpecialCharacter() {
+    char str[100];
+    int i = 0, count = 0;
+
+    printf("Enter a string:\n");
+    fgets(str, sizeof(str), stdin);
+
+    // Traverse each character
+    while (str[i] != '\0') {
+        char ch = str[i];
+
+        // Check if NOT alphabet or digit using ASCII ranges
+        if (!((ch >= 'A' && ch <= 'Z') || 
+              (ch >= 'a' && ch <= 'z') || 
+              (ch >= '0' && ch <= '9') || 
+              ch == '\n' || ch == ' ')) {
+            count++;
+        }
+
+        i++;
+    }
+
+    printf("Number of special characters: %d\n", count);
+}
+
 
 int main(){
     arrayOfStrings();
