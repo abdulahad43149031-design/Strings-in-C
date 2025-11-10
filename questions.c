@@ -63,8 +63,51 @@ void isPalindrome(char str[]){
     }
 }
 
+void commaSeperated(){
+    char str[100];
+    printf("Enter the string\n");
+    fgets(str, sizeof(str), stdin);
+
+    int i = 0;
+    while(str[i] != '\0'){
+        if(str[i] == '\n') str[i] = '\0';
+        i++;
+    }
+    i = 0;
+    while(str[i] != '\0'){
+        if(str[i] == ' '){
+            str[i] = ',';
+        }
+        i++;
+    }
+    printf("%s", str);
+}
+
+void arrayOfStrings(){
+    char words[5][50];
+    int i;
+    for(i = 0; i<5; i++){
+        printf("String %d", i+1);
+        fgets(words[i], sizeof(words[i]), stdin);
+
+        int j = 0;
+        while(words[i][j] != '\0'){
+            if(words[i][j] == '\n'){
+                words[i][j] = '\0';
+                break;
+            }
+            j++;
+        }
+        printf("\nYou entered:\n");
+    }
+
+    for (i = 0; i < 5; i++) {
+        printf("%s\n", words[i]);
+    }
+
+}
+
 
 int main(){
-    char str1[] = "Abcd";
-    char str2[] = "Hello world";
+    arrayOfStrings();
 }
