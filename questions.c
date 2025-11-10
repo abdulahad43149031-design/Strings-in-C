@@ -132,7 +132,53 @@ void  numberOfSpecialCharacter() {
     printf("Number of special characters: %d\n", count);
 }
 
+void replaceCharWithNext(){
+    
+    char str[3][50];
+    int i, j;
+
+    printf("Enter 3 strings:\n");
+    for (i = 0; i < 3; i++) {
+        fgets(str[i], sizeof(str[i]), stdin);
+
+        // remove newline if present
+        int k = 0;
+        while (str[i][k] != '\0') {
+            if (str[i][k] == '\n') {
+                str[i][k] = '\0';
+                break;
+            }
+            k++;
+        }
+    }
+
+    // replace each character with next alphabetical one
+    for (i = 0; i < 3; i++) {
+        j = 0;
+        while (str[i][j] != '\0') {
+            if ((str[i][j] >= 'a' && str[i][j] <= 'z')) {
+                if (str[i][j] == 'z')
+                    str[i][j] = 'a';
+                else
+                    str[i][j] = str[i][j] + 1;
+            } 
+            else if ((str[i][j] >= 'A' && str[i][j] <= 'Z')) {
+                if (str[i][j] == 'Z')
+                    str[i][j] = 'A';
+                else
+                    str[i][j] = str[i][j] + 1;
+            }
+            j++;
+        }
+    }
+
+    printf("\nModified strings:\n");
+    for (i = 0; i < 3; i++) {
+        printf("%s\n", str[i]);
+    }
+}
+
 
 int main(){
-    arrayOfStrings();
+    replaceCharWithNext();
 }
