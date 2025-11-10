@@ -7,6 +7,8 @@ void countFrequency(){
     char word[20];
     int occurences = 0;
 
+    // enter statement
+
     printf("Enter the string:\n");
     fgets(sentence, sizeof(sentence), stdin);
 
@@ -17,6 +19,8 @@ void countFrequency(){
         i++;
     }
     i = 0;
+    
+    // enter word
 
     printf("Enter the word:\n");
     fgets(word, sizeof(word), stdin);
@@ -36,7 +40,7 @@ void countFrequency(){
         }
         temp[j] = '\0'; // null terminate temp
 
-        // compare temp and word manuallu
+        // compare temp and word manually
         int k = 0, flag = 1;
         while(temp[k] != '\0' || word[k] != '\0'){
             if(temp[k] != word[k]){
